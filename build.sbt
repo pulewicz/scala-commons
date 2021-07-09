@@ -15,7 +15,7 @@ val scalatestVersion = "3.2.7"
 val scalatestplusScalacheckVersion = "3.2.2.0"
 val scalacheckVersion = "1.15.2"
 val jettyVersion = "9.4.39.v20210325"
-val mongoVersion = "4.1.1"
+val mongoVersion = "4.2.3"
 val springVersion = "4.3.26.RELEASE"
 val typesafeConfigVersion = "1.4.0"
 val commonsIoVersion = "1.3.2"
@@ -372,6 +372,7 @@ lazy val `commons-benchmark` = project
       "io.circe" %% "circe-jawn" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
       "com.lihaoyi" %% "upickle" % upickleVersion,
+      "org.mongodb" % "mongodb-driver-reactivestreams" % mongoVersion,
     ),
     ideExcludedDirectories := (Jmh / managedSourceDirectories).value,
   )
