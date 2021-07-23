@@ -15,7 +15,7 @@ val scalatestVersion = "3.2.7"
 val scalatestplusScalacheckVersion = "3.2.2.0"
 val scalacheckVersion = "1.15.2"
 val jettyVersion = "9.4.39.v20210325"
-val mongoVersion = "4.2.3"
+val mongoVersion = "4.3.0"
 val springVersion = "4.3.26.RELEASE"
 val typesafeConfigVersion = "1.4.0"
 val commonsIoVersion = "1.3.2"
@@ -29,7 +29,7 @@ val scalajsBenchmarkVersion = "0.9.0"
 val slf4jVersion = "1.7.30"
 
 // for binary compatibility checking
-val previousCompatibleVersions = Set("1.39.14")
+val previousCompatibleVersions = Set("2.2.4")
 
 Global / excludeLintKeys ++= Set(ideExcludedDirectories, ideOutputDirectory, ideBasePackages, ideSkipProject)
 

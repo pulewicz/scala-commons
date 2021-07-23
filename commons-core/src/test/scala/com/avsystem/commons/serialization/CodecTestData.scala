@@ -2,6 +2,8 @@ package com.avsystem.commons
 package serialization
 
 import com.avsystem.commons.annotation.AnnotationAggregate
+import com.avsystem.commons.meta.MacroInstances
+import com.avsystem.commons.meta.AutoOptionalParams
 import com.avsystem.commons.misc.{TypedKey, TypedKeyCompanion}
 
 object CodecTestData {
@@ -168,6 +170,14 @@ object CodecTestData {
     @optionalParam bul: Option[Boolean]
   )
   object CaseClassWithOptionalFields extends HasGenCodec[CaseClassWithOptionalFields]
+
+  case class CaseClassWithAutoOptionalFields(
+    str: String,
+    int: Opt[Int],
+    bul: Option[Boolean],
+    nint: NOpt[Opt[Int]],
+  )
+  object CaseClassWithAutoOptionalFields extends HasGenCodecWithDeps[AutoOptionalParams.type, CaseClassWithAutoOptionalFields]
 
   class CaseClassLike(val str: String, val intList: List[Int])
     extends Wrapper[CaseClassLike](str, intList)
@@ -363,4 +373,9 @@ object CodecTestData {
   @transparent
   case class ThingId(value: String)
   object ThingId extends StringWrapperCompanion[ThingId]
+
+  locally {
+    case class LocalStuff()
+    object LocalStuff extends HasGenCodec[LocalStuff]()(MacroInstances.materialize)
+  }
 }
